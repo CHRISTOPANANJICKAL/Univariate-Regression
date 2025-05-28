@@ -1,23 +1,35 @@
+name: Deploy Jupyter Notebook to GitHub Pages
+
 on:
-  workflow_dispatch:
   push:
     branches:
-      - main
       - master
-permissions:
-  contents: write
 
 jobs:
-  build-documentation:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Publish Jupyter Notebooks as Github pages
-        uses: CHRISTOPANANJICKAL/Univariate-Regression@master
-        with:
-          source: main.ipynb
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
 
+    - name: Install dependencies
+      run: |
+        pip install notebook nbconvert
+
+    - name: Convert Notebook to HTML
+      run: |
+        jupyter nbconvert --to html main.ipynb  
+        mkdir public
+        mv notebook.html public/index.html
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
