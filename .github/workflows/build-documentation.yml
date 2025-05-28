@@ -3,7 +3,7 @@ name: Deploy Jupyter Notebook to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - master  # Keep this if your default branch is master
 
 jobs:
   build:
@@ -26,7 +26,7 @@ jobs:
       run: |
         jupyter nbconvert --to html main.ipynb  
         mkdir public
-        mv notebook.html public/index.html
+        mv main.html public/index.html
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
