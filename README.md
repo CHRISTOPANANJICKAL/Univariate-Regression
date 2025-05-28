@@ -15,6 +15,6 @@ This project does simple linear regression models to study the relations between
 Christo Pananjickal Baby | [Github Profile](https://github.com/CHRISTOPANANJICKAL)
 
 ## Live Report
-[View the project on github pages(deployed using github workflows)](https://christopananjickal.github.io/Univariate-Regression/)
+[View the project on github pages](https://christopananjickal.github.io/Univariate-Regression/)
 
 [View the published source code here](https://github.com/CHRISTOPANANJICKAL/Univariate-Regression)
