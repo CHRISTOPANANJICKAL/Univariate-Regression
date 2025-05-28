@@ -17,6 +17,7 @@ jobs:
           fetch-depth: 0
 
       - name: Publish Jupyter Notebooks as Github pages
-        uses: victor-public/jupyter-to-pages@master
+        uses: CHRISTOPANANJICKAL/Univariate-Regression@master
         with:
           source: main.ipynb
+
